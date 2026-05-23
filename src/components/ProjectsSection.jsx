@@ -1,4 +1,4 @@
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -8,13 +8,17 @@ const projects = [
     description:
       "Modern portfolio website built with React and Tailwind CSS.",
     tags: ["React", "TailwindCSS", "Vite"],
+    live: "https://my-portfolio-nmit.vercel.app/",
+    image: "/projects/portfolio.png",
   },
   {
     id: 2,
-    title: "E-Commerce App",
+    title: "Data Visualization Dashboard",
     description:
-      "Full-stack e-commerce application with authentication and cart system.",
-    tags: ["React", "Node.js", "MongoDB"],
+      "Interactive data visualization dashboard for analyzing business metrics.",
+    tags: ["React", "Node.js", "MongoDB", "TailwindCSS", "ExpressJS"],
+    live: "https://blackcoffer-dashboard-jet.vercel.app/",
+    image: "/projects/dashboard.png",
   },
   {
     id: 3,
@@ -22,6 +26,8 @@ const projects = [
     description:
       "A high-performance, minimalist task management application.",
     tags: ["React.js", "TailwindCSS"],
+    live: "https://todo-app-ashy-tau-q4i11hu7ks.vercel.app/",
+    image: "/projects/todo.png",
   },
 ];
 
@@ -31,7 +37,7 @@ export const ProjectsSection = () => {
       id="projects"
       className="py-24 px-6 relative overflow-hidden"
     >
-      {/* Background glow (safe with stars/meteors) */}
+      {/* Background glow */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 blur-3xl rounded-full" />
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-500/10 blur-3xl rounded-full" />
 
@@ -73,18 +79,23 @@ export const ProjectsSection = () => {
               {/* Glow overlay */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-linear-to-br from-primary/10 via-transparent to-purple-500/10" />
 
-              {/* TOP SECTION */}
+              {/* Project Image */}
               <div className="h-52 relative overflow-hidden">
 
-                <div className="absolute inset-0 bg-linear-to-r from-cyan-500 to-blue-600 group-hover:scale-110 transition-transform duration-700" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
 
-                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 bg-black/30" />
 
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="text-white text-xl font-bold tracking-wide">
+                  {/* <h3 className="text-white text-xl font-bold tracking-wide">
                     {project.title}
-                  </h3>
+                  </h3> */}
                 </div>
+
               </div>
 
               {/* CONTENT */}
@@ -112,10 +123,15 @@ export const ProjectsSection = () => {
                   {project.description}
                 </p>
 
-                {/* Button */}
-                <button className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all duration-300">
-                  View Project <ArrowRight size={18} />
-                </button>
+                {/* Live Demo */}
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all duration-300"
+                >
+                  Live Demo <ExternalLink size={18} />
+                </a>
 
               </div>
 
